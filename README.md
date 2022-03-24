@@ -2,16 +2,23 @@
 
 A small module that brings the good dog Finn into your Jupyter notebooks.
 
-![demo image](images/error.png)
+![demo image](https://github.com/svank/code_with_finn/raw/main/images/error.png)
 
 While Finn can cheer you up after errors, he can also celebrate successes!
 
-![demo image](images/celebrate.png)
+![demo image](https://github.com/svank/code_with_finn/raw/main/images/celebrate.png)
 
 He can also help you prepare yourself before a long stack trace.
 
-![demo image](images/looks_bad.png)
+![demo image](https://github.com/svank/code_with_finn/raw/main/images/looks_bad.png)
 
 You can send him away if you need to:
 
-![demo image](images/without.png)
+![demo image](https://github.com/svank/code_with_finn/raw/main/images/without.png)
+
+# Installation
+
+Install with
+```
+pip install code_with_finn
+```
