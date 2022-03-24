@@ -1,9 +1,16 @@
 try:
     import IPython
     from IPython.display import display
+except:
+    # We must not be in IPython?
+    import warnings
+    warnings.warn("code_with_finn could not load IPython")
+
+try:
     from PIL import Image
 except:
-    pass
+    import warnings
+    warnings.warn("code_with_finn could not load pillow")
 
 
 import contextlib
