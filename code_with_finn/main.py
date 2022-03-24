@@ -61,7 +61,22 @@ def _activate_error_messages():
         pass
 
 
-_activate_error_messages()
+def _deactivate_error_messages():
+    try:
+        IPython.core.interactiveshell.InteractiveShell.showtraceback = \
+                _real_IPython_showtraceback
+    except:
+        pass
+
+
+def announce_errors(activate=True):
+    if activate:
+        _activate_error_messages()
+    else:
+        _deactivate_error_messages()
+
+
+announce_errors(True)
 
 
 def _code_with_finn_pre_run_cell():
@@ -101,8 +116,19 @@ def _activate_success_messages():
         pass
 
 
-def celebrate_success():
-    _activate_success_messages()
+def _deactivate_success_messages():
+    try:
+        ip = IPython.get_ipython()
+        ip.events.unregister('post_run_cell', _code_with_finn_post_run_cell)
+    except:
+        pass
+
+
+def celebrate_success(activate=True):
+    if activate:
+        _activate_success_messages()
+    else:
+        _deactivate_success_messages()
 
 
 @contextlib.contextmanager
