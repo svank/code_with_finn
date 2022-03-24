@@ -18,7 +18,7 @@ You can send him away if you need to:
 
 ![demo image](https://github.com/svank/code_with_finn/raw/main/images/without.png)
 
-Or send him away forever with
+Or keep him away with
 ```python
 code_with_finn.announce_errors(False)
 code_with_finn.celebrate_success(False)
