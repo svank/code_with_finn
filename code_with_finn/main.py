@@ -28,7 +28,7 @@ _suppress_outputs = False
 
 
 def _code_with_finn_except_hook(*args, **kwargs):
-    if not _suppress_outputs:
+    if not _suppress_outputs and in_notebook():
         t = sys.exc_info()[2]
         depth = len(traceback.format_list(traceback.extract_tb(t)))
         if depth > 5:
@@ -96,7 +96,7 @@ except:
 def _code_with_finn_post_run_cell():
     # Ensure we only show the success message if there was no exception
     global _has_excepted
-    if _has_excepted or _suppress_outputs:
+    if _has_excepted or _suppress_outputs or not in_notebook():
         _has_excepted = False
         return
     path = os.path.join(_path, 'success.jpg')
@@ -137,3 +137,15 @@ def out_finn():
     _suppress_outputs = True
     yield
     _suppress_outputs = False
+
+
+def in_notebook():
+    try:
+        from IPython import get_ipython
+        if 'IPKernelApp' not in get_ipython().config:
+            return False
+    except ImportError:
+        return False
+    except AttributeError:
+        return False
+    return True
