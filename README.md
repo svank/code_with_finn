@@ -4,7 +4,7 @@ A small module that brings the good dog Finn into your Jupyter notebooks.
 
 ![demo image](https://github.com/svank/code_with_finn/raw/main/images/error.png)
 
-While Finn can cheer you up after errors, he can also celebrate successes!
+While Finn can warn you after errors, he can also celebrate successes!
 
 ![demo image](https://github.com/svank/code_with_finn/raw/main/images/celebrate.png)
 
