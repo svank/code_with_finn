@@ -1,5 +1,7 @@
 # code_with_finn
 
+[![PyPI version](https://badge.fury.io/py/code-with-finn.svg)](https://pypi.org/project/code-with-finn/)
+
 A small module that brings the good dog Finn into your Jupyter notebooks.
 
 ![demo image](https://github.com/svank/code_with_finn/raw/main/images/error.png)
