@@ -29,12 +29,15 @@ _suppress_outputs = False
 
 def _code_with_finn_except_hook(*args, **kwargs):
     if not _suppress_outputs and in_notebook():
-        t = sys.exc_info()[2]
-        depth = len(traceback.format_list(traceback.extract_tb(t)))
-        if depth > 5:
-            file = 'bad_error.jpg'
+        if isinstance(sys.exc_info()[1], KeyboardInterrupt):
+            file = 'keyboard_interrupt.jpg'
         else:
-            file = 'error.jpg'
+            t = sys.exc_info()[2]
+            depth = len(traceback.format_list(traceback.extract_tb(t)))
+            if depth > 5:
+                file = 'bad_error.jpg'
+            else:
+                file = 'error.jpg'
         path = os.path.join(_path, file)
         try:
             display(Image.open(path))
